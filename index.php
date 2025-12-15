@@ -16,20 +16,23 @@
     <?php
     try {
         $time = time();
-        (int) $hour = $_POST['hour'];
-        (int) $minute = $_POST['minute'];
-        (int) $second = $_POST['second'];
+        $hour = $_POST['hour'];
+        $minute = $_POST['minute'];
+        $second = $_POST['second'];
     } catch (Throwable $e) {
         echo "Welcome";
     }
 
         //try to append the isset functions::comma not functioning on keyboard
         if (isset($hour) && isset($minute) && isset($second)){
+            $hour = $hour * 60 * 60 ?? 0;
+            $minute = $minute * 60 ?? 0;
+            $second = $second ?? 0;
             $timeadd = 0;
-            $hour = $hour * 60 * 60;
-            $minute = $minute * 60;
             $timeadd = $hour + $minute + $second;
             echo $timeadd;
+            echo "<br>";
+            // echo $minute;
         }
     ?>
 </body>
