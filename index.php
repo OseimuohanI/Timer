@@ -15,7 +15,6 @@
     </form>
     <?php
     try {
-        $time = time();
         $hour = $_POST['hour'];
         $minute = $_POST['minute'];
         $second = $_POST['second'];
@@ -23,16 +22,36 @@
         echo "Welcome";
     }
 
+    function countdown(){
+        $count = "Timer";
+        for ($i = 0; $i <= 10; $i++){
+            $count = $count . $i;
+            return $count;
+        }
+    }
+
         //try to append the isset functions::comma not functioning on keyboard
         if (isset($hour) && isset($minute) && isset($second)){
-            $hour = $hour * 60 * 60 ?? 0;
-            $minute = $minute * 60 ?? 0;
-            $second = $second ?? 0;
+            $hour = (int)$hour * 60 * 60 ?? 0;
+            $minute = (int)$minute * 60 ?? 0;
+            $second = (int)$second ?? 0;
             $timeadd = 0;
             $timeadd = $hour + $minute + $second;
+            $time = time() + $timeadd;
+            // echo $time . "<br>";
             echo $timeadd;
             echo "<br>";
+            // echo countdown();
+            echo "<br>";
             // echo $minute;
+            $countdown =  0;
+            if (time() + 1){
+                $timeadd--;
+                echo $timeadd;
+            }
+            if (is_numeric($time)){
+                setcookie("time", "", time() + $timeadd);
+            }
         }
     ?>
 </body>
