@@ -30,7 +30,6 @@
         }
     }
 
-        //try to append the isset functions::comma not functioning on keyboard
         if (isset($hour) && isset($minute) && isset($second)){
             $hour = (int)$hour * 60 * 60 ?? 0;
             $minute = (int)$minute * 60 ?? 0;
@@ -50,7 +49,7 @@
                 echo $timeadd;
             }
             if (is_numeric($time)){
-                setcookie("time", "", time() + $timeadd);
+                setcookie("time", "Time Add", time() + $timeadd);
             }
         }
     ?>
